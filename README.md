@@ -1,2 +1,2 @@
-# ES2022
+# vanilla
 Created with CodeSandbox
