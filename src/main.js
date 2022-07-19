@@ -117,3 +117,13 @@ console.log(result);
 const indicesGroups = result.indices.groups;
 console.log(indicesGroups.family);  // [4, 6]
 console.log(indicesGroups.name);  // [10, 12]
+
+
+//非同期
+
+new Promise((resolve, reject) => {
+  console.log("Promise");
+  resolve();
+}).then(() => console.log("then"));
+
+console.log("global end");
