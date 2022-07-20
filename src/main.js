@@ -127,3 +127,24 @@ new Promise((resolve, reject) => {
 }).then(() => console.log("then"));
 
 console.log("global end");
+
+
+//axiosを使用　レスポンスあり
+const getTodo = () => {
+  const todo = axios
+    .get(`http://localhost:4000/todos/4`) // 存在しないリソースを参照する（404エラー発生）
+    .then((response) => response.data)
+    .catch((error) => {
+      // レスポンスありのエラーハンドリング（実際には必要に応じた例外処理を実装する）
+      console.log(
+        `Error! code: ${error.response.status}, message: ${error.message}`
+      );
+      return error.response.data;
+    });
+  return todo;
+};
+
+// 実行結果
+getTodo().then((todo) => console.log(todo));
+// Error! code: 404, message: Request failed with status code 404
+// {}
